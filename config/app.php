@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Kuala_Lumpur', // Update timezone to Asia/Kuala Lumpur
 
     /*
     |--------------------------------------------------------------------------
