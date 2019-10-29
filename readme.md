@@ -77,3 +77,9 @@ The Laravel framework is open-source software licensed under the [MIT license](h
 ## Create Authentication Scaffolding - Vue
     composer require laravel/ui --dev
     php artisan ui vue --auth
+
+## Make Migration
+    php artisan make:migration create_article_table
+    !!! Make sure change database name, root & password at .env
+    php artisan migrate - for migrate table
+    php aritsan migrate:rollback : rollback table
