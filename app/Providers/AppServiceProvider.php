@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Suppoer\Facades\Schema; // Support MariaDB
+use Illuminate\Support\Facades\Schema; // Support MariaDB
 
 class AppServiceProvider extends ServiceProvider
 {
