@@ -21,3 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('helloworld', function () {
     echo 'Hello World';
 });
+
+Route::get('/articles', 'ArticlesController@index')->name('index');
+Route::get('/articles/create', 'ArticlesController@create')->name('create');
+Route::post('/articles/create', 'ArticlesController@store')->name('store');
