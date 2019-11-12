@@ -22,6 +22,6 @@ Route::get('helloworld', function () {
     echo 'Hello World';
 });
 
-Route::get('/articles', 'ArticlesController@index')->name('index');
-Route::get('/articles/create', 'ArticlesController@create')->name('create');
-Route::post('/articles/create', 'ArticlesController@store')->name('store');
+Route::get('/articles', 'ArticlesController@index')->name('articles:index');
+Route::get('/articles/create', 'ArticlesController@create')->name('articles:create');
+Route::post('/articles/create', 'ArticlesController@store')->name('articles:store');

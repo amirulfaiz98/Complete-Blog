@@ -27,6 +27,7 @@ class ArticlesController extends Controller
 
         //Method 2
         $article = Article::create($request->only('title','body','published'));
-        return redirect('/articles');
+        //return redirect('/articles');
+        return redirect()->route('articles:index');
     }
 }
