@@ -27,6 +27,6 @@ class ArticlesController extends Controller
 
         //Method 2
         $article = Article::create($request->only('title','body','published'));
-        return back();
+        return redirect('/articles');
     }
 }
