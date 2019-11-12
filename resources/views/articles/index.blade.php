@@ -5,7 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Articles Dashboard</div>
+                <div class="card-header">Articles Dashboard
+                    <div class="float-right">
+                    <a href="{{ route('articles:create')}}" class="btn btn-primary">New</a>
+                    </div>
 
                 <div class="card-body">
                     <table class="table">
