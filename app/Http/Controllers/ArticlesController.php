@@ -30,4 +30,8 @@ class ArticlesController extends Controller
         //return redirect('/articles');
         return redirect()->route('articles:index')->with(['alert-type' => 'alert-success', 'alert'=> 'Your article saved']);
     }
+
+    public function edit(Article $article){
+        return view('articles:edit')->with(compact('article'));
+    }
 }
