@@ -28,7 +28,7 @@
                                     <td>{{ $article->created_at}}</td>
                                     <td>
                                     <a href="{{ route('articles:edit', $article)}}" class="btn btn-primary">Edit</a>
-                                    <a href="{{ route('articles:delete', $article)}}" class="btn btn-danger">Delete</a>.
+                                    <a href="{{ route('articles:delete', $article)}}" class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach

@@ -26,4 +26,5 @@ Route::get('/articles', 'ArticlesController@index')->name('articles:index');
 Route::get('/articles/create', 'ArticlesController@create')->name('articles:create');
 Route::post('/articles/create', 'ArticlesController@store')->name('articles:store');
 Route::get('/articles/edit/{article}', 'ArticlesController@edit')->name('articles:edit');
-Route::post('/article/edit/{article}', 'Articles@Controller@update')->name('articles:update');
+Route::post('/articles/edit/{article}', 'ArticlesController@update')->name('articles:update');
+Route::get('/articles/delete/{article}', 'ArticlesController@delete')->name('articles:delete');

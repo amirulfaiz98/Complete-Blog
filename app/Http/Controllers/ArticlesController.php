@@ -32,6 +32,13 @@ class ArticlesController extends Controller
     }
 
     public function edit(Article $article){
-        return view('articles:edit')->with(compact('article'));
+        return view('articles.edit')->with(compact('article'));
+    }
+
+    public function update(Request $request, Article $article){
+
+        $article = $article->update($request->only('title', 'body', 'published'));
+
+        return redirect()->route('articles:index')->with(['alert-type' => 'alert-success', 'alert' => "Your article updated"]);
     }
 }
