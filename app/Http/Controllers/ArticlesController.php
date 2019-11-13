@@ -41,4 +41,9 @@ class ArticlesController extends Controller
 
         return redirect()->route('articles:index')->with(['alert-type' => 'alert-success', 'alert' => "Your article updated"]);
     }
+
+    public function delete(Article $article){
+        $article->delete();
+        return redirect()->route('articles:index')->with(['alert-type' => 'alert-danger', 'alert' => 'Your article deleted']);
+    }
 }
