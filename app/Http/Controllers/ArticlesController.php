@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 use App\Article;
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
+use App\Http\Requests\StoreArticleRequest as Request;
 
 class ArticlesController extends Controller
 {
     //
     public function index(){
-        $articles = Article::orderBy('created_at', 'DESC')->get();
+        $articles = Article::orderBy('created_at','DESC')->get();
+        $articles = Article::paginate();
 
         return view('articles.index')->with(compact('articles'));
     }

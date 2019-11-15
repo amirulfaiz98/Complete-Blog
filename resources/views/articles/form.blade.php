@@ -3,14 +3,25 @@
         @csrf
         <div class="form-group">
             <label for="title">Title</label>
-            <input type="text" class="form-control" name="title"
-                value="{{ isset($article) ? $article->title : ''}}">
+            <input
+            type="text"
+            class="form-control @error('title') is-invalid @enderror"
+            name="title"
+            value="{{ isset($article) ? old('title',$article->title) : old('title')}}"
+        >
+        @error('title')
+            <div class="invalid-feedback">{{ $errors->first('title')}}</div>
+        @enderror
         </div>
         <div class="form-group">
             <label for="title">Body</label>
-            <textarea name="body" id="body" cols="20" rows="10"
-                class="form-control">{{ isset($article) ? $article->body : ''}}
+            <textarea
+            name="body" id="body" cols="20" rows="10"
+            class="form-control @error('body') is-invalid @enderror">{{ isset($article) ? old('body',$article->body) : old('body')}}
             </textarea>
+            @error('body')
+            <div class="invalid-feedback">{{ $errors->first('body')}}</div>
+            @enderror
         </div>
         <div class="form-group">
             <label for="published">Published?</label>
