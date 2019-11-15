@@ -22,9 +22,17 @@ Route::get('helloworld', function () {
     echo 'Hello World';
 });
 
-Route::get('/articles', 'ArticlesController@index')->name('articles:index');
-Route::get('/articles/create', 'ArticlesController@create')->name('articles:create');
-Route::post('/articles/create', 'ArticlesController@store')->name('articles:store');
-Route::get('/articles/edit/{article}', 'ArticlesController@edit')->name('articles:edit');
-Route::post('/articles/edit/{article}', 'ArticlesController@update')->name('articles:update');
-Route::get('/articles/delete/{article}', 'ArticlesController@delete')->name('articles:delete');
+
+Route::group([
+    'middleware' =>'auth',
+    'prefix' => 'articles',
+    'as' => 'articles:'
+], function(){
+    Route::get('/create', 'ArticlesController@create')->name('create');
+    Route::post('/create', 'ArticlesController@store')->name('store');
+    Route::get('/', 'ArticlesController@index')->name('index');
+    Route::get('/edit/{article}', 'ArticlesController@edit')->name('edit');
+    Route::post('/edit/{article}', 'ArticlesController@update')->name('update');
+    Route::get('/delete/{article}', 'ArticlesController@delete')->name('delete');
+    Route::get('/search', 'ArticlesController@search')->name('search');
+});

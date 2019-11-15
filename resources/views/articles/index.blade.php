@@ -11,6 +11,19 @@
                     </div>
 
                 <div class="card-body">
+                        <form class="form-inline" method="GET" action="{{ route('articles:search')}}">
+                                <input type="text" id="search"
+                                        class="form-control mb-2"
+                                        placeholder="Search"
+                                        name="keyword"
+                                        value="{{ request()->get('keyword')}}">
+                                <button type="submit" class="btn btn-primary mb-2">Search</button>
+                            </form>
+                            @if (session()->has('alert'))
+                        <div class="alert {{ session()->get('alert-type')}}">
+                            {{session()->get('alert')}}
+                        </div>
+                    @endif
                     <table class="table">
                         <thead>
                             <tr>
@@ -35,7 +48,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    {{ $articles->links()}}
+                    {{ $articles->appends(['keyword' =>request()->get('keyword')])->links()}}
                 </div>
             </div>
         </div>

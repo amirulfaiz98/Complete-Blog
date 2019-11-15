@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 use App\Article;
-//use Illuminate\Http\Request;
+use Illuminate\Http\Request as BaseRequest;
 use App\Http\Requests\StoreArticleRequest as Request;
 
 class ArticlesController extends Controller
 {
-    //
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     public function index(){
         $articles = Article::orderBy('created_at','DESC')->get();
         $articles = Article::paginate();
@@ -47,5 +50,11 @@ class ArticlesController extends Controller
     public function delete(Article $article){
         $article->delete();
         return redirect()->route('articles:index')->with(['alert-type' => 'alert-danger', 'alert' => 'Your article deleted']);
+    }
+
+    public function search(BaseRequest $request){
+        $keyword = $request->get('keyword');
+        $articles = Article::where('title','LIKE','%'.$keyword.'%')->paginate(3);
+        return view('articles.index')->with(compact('articles'));
     }
 }

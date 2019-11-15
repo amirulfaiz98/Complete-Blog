@@ -103,3 +103,7 @@ The Laravel framework is open-source software licensed under the [MIT license](h
     php artisan make:seeder ArticleTableSeeder
 
     php artisan db:seed --class=ArticleTableSeeder    
+
+## Make Request
+    php artisan make:request StoreArticleRequest
+    
