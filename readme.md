@@ -81,9 +81,14 @@ The Laravel framework is open-source software licensed under the [MIT license](h
 ## Make Migration
     php artisan make:migration create_article_table
     !!! Make sure change database name, root & password at .env
+
     php artisan migrate - for migrate table
+
     php aritsan migrate:rollback : rollback table
+
     php artisan migrate:refresh - rollback & migrate database
+    
+    php artisan make:migration alter_articles_table_add_user_id
 
 ## Make Controller
     php artisan make:controller ArticlesController
@@ -106,4 +111,3 @@ The Laravel framework is open-source software licensed under the [MIT license](h
 
 ## Make Request
     php artisan make:request StoreArticleRequest
-    
